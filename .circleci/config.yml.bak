@@ -43,11 +43,11 @@ jobs:
 
       - run: bash scripts/generate.sh > Dockerfile
 
-      - run: docker login --username=_ --password=$(heroku auth:token) registry.heroku.com
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
 
-      - run: docker push registry.heroku.com/c64libci-test 
+      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
 
       - store_artifacts:
           path: Dockerfile
