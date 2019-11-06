@@ -2,9 +2,9 @@
 
 echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
-echo "RUN echo \"deb http://ftp.debian.org/debian stretch contrib\" >> /etc/apt/sources.list"
+echo "RUN echo \"deb http://ftp.debian.org/debian buster contrib\" >> /etc/apt/sources.list"
 echo "RUN apt-get update"
-echo "RUN apt-get install -y x11vnc xvfb"
+#echo "RUN apt-get install -y x11vnc xvfb"
 echo "RUN apt-get install -y openjdk-8-jdk"
 echo "RUN apt-get install -y vice"
 
