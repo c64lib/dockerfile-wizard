@@ -54,7 +54,7 @@ jobs:
 
       - run: bash scripts/generate.sh > Dockerfile
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - run: docker push registry.heroku.com/c64libci-test
+      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
       #      - run: heroku container:login
 #      - run: heroku container:push web
 #      - run: heroku container:release web
